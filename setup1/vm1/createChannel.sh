@@ -3,7 +3,7 @@ export ORDERER_CA=${PWD}/../vm4/crypto-config/ordererOrganizations/amazonbiobank
 export PEER0_ORG1_CA=${PWD}/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
-export CHANNEL_NAME=mychannel
+export CHANNEL_NAME=channel1
 
 setGlobalsForPeer0Org1(){
     export CORE_PEER_LOCALMSPID="Org1MSP"
@@ -24,20 +24,20 @@ createChannel(){
     setGlobalsForPeer0Org1
     
     # Replace localhost with your orderer's vm IP address
-    peer channel create -o 10.4.0.46:7050 -c $CHANNEL_NAME \
+    peer channel create -o 10.4.0.46:13750 -c $CHANNEL_NAME \
     --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
     -f ./../../artifacts/channel/${CHANNEL_NAME}.tx --outputBlock ./channel-artifacts/${CHANNEL_NAME}.block \
     --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
 }
 
-# createChannel
+createChannel
 
 joinChannel(){
     setGlobalsForPeer0Org1
     peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block
     
-    setGlobalsForPeer1Org1
-    peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block
+    # setGlobalsForPeer1Org1
+    # peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block
     
 }
 
@@ -46,7 +46,7 @@ joinChannel(){
 updateAnchorPeers(){
     setGlobalsForPeer0Org1
     # Replace localhost with your orderer's vm IP address
-    peer channel update -o 10.4.0.46:7050 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    peer channel update -o 10.4.0.46:13750 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
     
 }
 
@@ -54,6 +54,6 @@ updateAnchorPeers(){
 
 # removeOldCrypto
 
-createChannel
-joinChannel
-updateAnchorPeers
+# createChannel
+# joinChannel
+# updateAnchorPeers
