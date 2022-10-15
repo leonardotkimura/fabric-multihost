@@ -3,7 +3,7 @@ Organizations:
     - &OrdererOrg
         Name: OrdererOrg
         ID: OrdererMSP
-        MSPDir: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/msp
+        MSPDir: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/msp
 
         Policies:
             Readers:
@@ -20,7 +20,7 @@ Organizations:
         Name: Org1MSP
         ID: Org1MSP
 
-        MSPDir: ../../setup1/vm1/crypto-config/peerOrganizations/org1.example.com/msp
+        MSPDir: ../../setup1/vm1/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/msp
 
         Policies:
             Readers:
@@ -45,7 +45,7 @@ Organizations:
 
         ID: Org2MSP
 
-        MSPDir: ../../setup1/vm2/crypto-config/peerOrganizations/org2.example.com/msp
+        MSPDir: ../../setup1/vm2/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/msp
 
         Policies:
             Readers:
@@ -70,7 +70,7 @@ Organizations:
 
         ID: Org3MSP
 
-        MSPDir: ../../setup1/vm3/crypto-config/peerOrganizations/org3.example.com/msp
+        MSPDir: ../../setup1/vm3/crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/msp
 
         Policies:
             Readers:
@@ -130,12 +130,12 @@ Orderer: &OrdererDefaults
 
     EtcdRaft:
         Consenters:
-        - Host: orderer.example.com
-          Port: 7050
-          ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
-          ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+        - Host: orderer.amazonbiobank.mooo.com
+          Port: 13750
+          ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+          ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
     Addresses:
-        - orderer.example.com:7050
+        - orderer.amazonbiobank.mooo.com:13750
 
     BatchTimeout: 2s
     BatchSize:
@@ -196,22 +196,22 @@ Profiles:
             OrdererType: etcdraft
             EtcdRaft:
                 Consenters:
-                - Host: orderer.example.com
-                  Port: 7050
-                  ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
-                  ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
-                - Host: orderer2.example.com
-                  Port: 8050
-                  ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
-                  ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer2.example.com/tls/server.crt
-                - Host: orderer3.example.com
-                  Port: 9050
-                  ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
-                  ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/example.com/orderers/orderer3.example.com/tls/server.crt
+                - Host: orderer.amazonbiobank.mooo.com
+                  Port: 13750
+                  ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+                  ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+                - Host: orderer2.amazonbiobank.mooo.com
+                  Port: 13751
+                  ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
+                  ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
+                - Host: orderer3.amazonbiobank.mooo.com
+                  Port: 13752
+                  ClientTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
+                  ServerTLSCert: ../../setup1/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
             Addresses:
-                - orderer.example.com:7050
-                - orderer2.example.com:8050
-                - orderer3.example.com:9050
+                - orderer.amazonbiobank.mooo.com:13750
+                - orderer2.amazonbiobank.mooo.com:13751
+                - orderer3.amazonbiobank.mooo.com:13752
 
             Organizations:
             - *OrdererOrg
