@@ -67,7 +67,7 @@ services:
       # Peer used to bootstrap gossip within organisation
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org3.amazonbiobank.mooo.com:11051
       # Exposed for discovery Service
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org3.amazonbiobank.mooo.com:12051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org3.amazonbiobank.mooo.com:12751
 
       # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
 
