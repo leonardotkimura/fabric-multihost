@@ -6,7 +6,7 @@ export PEER0_ORG3_CA=${PWD}/../vm3/crypto-config/peerOrganizations/org3.amazonbi
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
 
-export CHANNEL_NAME=channel1
+export CHANNEL_NAME=channel2
 
 setGlobalsForPeer0Org1() {
     export CORE_PEER_LOCALMSPID="Org1MSP"
@@ -41,18 +41,18 @@ setGlobalsForPeer1Org1() {
 
 presetup() {
     echo Vendoring Go dependencies ...
-    pushd ./../../artifacts/src/biobank-contract
+    pushd ./../../artifacts/src/currency-contract
     npm install
     popd
     echo Finished vendoring Go dependencies
 }
 # presetup
 
-CHANNEL_NAME="channel1"
+CHANNEL_NAME="channel2"
 CC_RUNTIME_LANGUAGE="node"
-VERSION="2"
-CC_SRC_PATH="./../../artifacts/src/biobank-contract"
-CC_NAME="biobank"
+VERSION="3"
+CC_SRC_PATH="./../../artifacts/src/currency-contract"
+CC_NAME="currency"
 
 packageChaincode() {
     rm -rf ${CC_NAME}.tar.gz
@@ -99,8 +99,8 @@ approveForMyOrg1() {
 
 }
 
-queryInstalled
-approveForMyOrg1
+# queryInstalled
+# approveForMyOrg1
 
 checkCommitReadyness() {
     setGlobalsForPeer0Org1
@@ -110,7 +110,7 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
-checkCommitReadyness
+# checkCommitReadyness
 
 commitChaincodeDefination() {
     setGlobalsForPeer0Org1
@@ -189,10 +189,10 @@ chaincodeQuery() {
 # Run this function if you add any new dependency in chaincode
 # presetup
 
-# packageChaincode
-# installChaincode
-# queryInstalled
-# approveForMyOrg1
+packageChaincode
+installChaincode
+queryInstalled
+approveForMyOrg1
 # checkCommitReadyness
 # approveForMyOrg2
 # checkCommitReadyness
