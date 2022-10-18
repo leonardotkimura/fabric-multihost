@@ -11,7 +11,7 @@
 
 
 # System channel
-SYS_CHANNEL="sys-channel"
+SYS_CHANNEL="channel2"
 
 # channel name defaults to "channel2"
 CHANNEL_NAME="channel2"
@@ -19,7 +19,7 @@ CHANNEL_NAME="channel2"
 echo $CHANNEL_NAME
 
 # Generate System Genesis block
-# configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis.block
+configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis_${CHANNEL_NAME}.block
 
 
 # Generate channel configuration block

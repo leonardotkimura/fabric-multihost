@@ -11,7 +11,7 @@
 
 
 # System channel
-SYS_CHANNEL="sys-channel"
+SYS_CHANNEL="channel1"
 
 # channel name defaults to "channel2"
 CHANNEL_NAME="channel1"
