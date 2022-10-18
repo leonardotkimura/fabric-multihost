@@ -14,16 +14,16 @@
 SYS_CHANNEL="sys-channel"
 
 # channel name defaults to "channel2"
-CHANNEL_NAME="channel1"
+CHANNEL_NAME="channel2"
 
 echo $CHANNEL_NAME
 
 # Generate System Genesis block
-configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis.block
+# configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis.block
 
 
 # Generate channel configuration block
-configtxgen -profile BasicChannel -configPath . -outputCreateChannelTx ./channel1.tx -channelID $CHANNEL_NAME
+configtxgen -profile BasicChannel -configPath . -outputCreateChannelTx ./channel2.tx -channelID $CHANNEL_NAME
 
 echo "#######    Generating anchor peer update for Org1MSP  ##########"
 configtxgen -profile BasicChannel -configPath . -outputAnchorPeersUpdate ./Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
