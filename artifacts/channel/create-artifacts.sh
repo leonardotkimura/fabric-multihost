@@ -6,7 +6,7 @@
 # rm -rf ../../channel-artifacts/*
 
 #Generate Crypto artifactes for organizations
-# cryptogen generate --config=./crypto-config.yaml --output=./crypto-config/
+cryptogen generate --config=./crypto-config.yaml --output=./crypto-config/
 
 
 
@@ -19,7 +19,7 @@ CHANNEL_NAME="channel1"
 echo $CHANNEL_NAME
 
 # Generate System Genesis block
-configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis.block
+configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis_${CHANNEL_NAME}.block
 
 
 # Generate channel configuration block
