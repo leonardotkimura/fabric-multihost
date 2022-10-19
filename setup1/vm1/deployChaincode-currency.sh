@@ -6,7 +6,7 @@ export PEER0_ORG3_CA=${PWD}/../vm3/crypto-config/peerOrganizations/org3.amazonbi
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
 
-export CHANNEL_NAME=channel2
+export CHANNEL_NAME=mychannel
 
 setGlobalsForPeer0Org1() {
     export CORE_PEER_LOCALMSPID="Org1MSP"
@@ -48,9 +48,9 @@ presetup() {
 }
 # presetup
 
-CHANNEL_NAME="channel2"
+CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="node"
-VERSION="3"
+VERSION="1"
 CC_SRC_PATH="./../../artifacts/src/currency-contract"
 CC_NAME="currency"
 

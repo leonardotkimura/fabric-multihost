@@ -3,7 +3,7 @@ export ORDERER_CA=${PWD}/../vm4/crypto-config/ordererOrganizations/amazonbiobank
 export PEER0_ORG3_CA=${PWD}/crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer0.org3.amazonbiobank.mooo.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
-export CHANNEL_NAME=channel2
+export CHANNEL_NAME=mychannel
 
 setGlobalsForPeer0Org3() {
     export CORE_PEER_LOCALMSPID="Org3MSP"

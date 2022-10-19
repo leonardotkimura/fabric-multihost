@@ -3,7 +3,7 @@ export ORDERER_CA=${PWD}/../vm4/crypto-config/ordererOrganizations/amazonbiobank
 export PEER0_ORG2_CA=${PWD}/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/peers/peer0.org2.amazonbiobank.mooo.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
-export CHANNEL_NAME=channel2
+export CHANNEL_NAME=mychannel
 
 setGlobalsForPeer0Org2() {
     export CORE_PEER_LOCALMSPID="Org2MSP"
@@ -30,9 +30,9 @@ presetup() {
 }
 # presetup
 
-CHANNEL_NAME="channel2"
+CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="node"
-VERSION="3"
+VERSION="1"
 CC_SRC_PATH="./../../artifacts/src/currency-contract"
 CC_NAME="currency"
 

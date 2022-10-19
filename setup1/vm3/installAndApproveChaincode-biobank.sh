@@ -4,7 +4,7 @@ export PEER0_ORG3_CA=${PWD}/crypto-config/peerOrganizations/org3.amazonbiobank.m
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
 
-export CHANNEL_NAME=channel1
+export CHANNEL_NAME=mychannel
 
 setGlobalsForPeer0Org3() {
     export CORE_PEER_LOCALMSPID="Org3MSP"
@@ -31,9 +31,9 @@ presetup() {
 }
 # presetup
 
-CHANNEL_NAME="channel1"
+CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="node"
-VERSION="2"
+VERSION="1"
 CC_SRC_PATH="./../../artifacts/src/biobank-contract"
 CC_NAME="biobank"
 

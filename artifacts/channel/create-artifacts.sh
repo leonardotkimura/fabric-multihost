@@ -2,7 +2,7 @@
 # chmod -R 0755 ./crypto-config
 # # Delete existing artifacts
 # rm -rf ./crypto-config
-# rm genesis.block channel2.tx
+# rm genesis.block mychannel.tx
 # rm -rf ../../channel-artifacts/*
 
 #Generate Crypto artifactes for organizations
@@ -11,15 +11,15 @@ cryptogen generate --config=./crypto-config.yaml --output=./crypto-config/
 
 
 # System channel
-SYS_CHANNEL="channel1"
+SYS_CHANNEL="mychannel"
 
-# channel name defaults to "channel2"
-CHANNEL_NAME="channel1"
+# channel name defaults to "mychannel"
+CHANNEL_NAME="mychannel"
 
 echo $CHANNEL_NAME
 
 # Generate System Genesis block
-configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis_${CHANNEL_NAME}.block
+configtxgen -profile OrdererGenesis -configPath . -channelID $SYS_CHANNEL  -outputBlock ./genesis.block
 
 
 # Generate channel configuration block
