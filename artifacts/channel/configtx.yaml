@@ -37,7 +37,7 @@ Organizations:
                 Rule: "OR('Org1MSP.peer')"
 
         AnchorPeers:
-            - Host: peer0.org1.example.com
+            - Host: peer0.org1.amazonbiobank.mooo.com
               Port: 7051
 
     - &Org2
@@ -62,7 +62,7 @@ Organizations:
                 Rule: "OR('Org2MSP.peer')"
 
         AnchorPeers:
-            - Host: peer0.org2.example.com
+            - Host: peer0.org2.amazonbiobank.mooo.com
               Port: 9051
 
     - &Org3
@@ -87,7 +87,7 @@ Organizations:
                 Rule: "OR('Org3MSP.peer')"
 
         AnchorPeers:
-            - Host: peer0.org3.example.com
+            - Host: peer0.org3.amazonbiobank.mooo.com
               Port: 11051
 
 Capabilities:

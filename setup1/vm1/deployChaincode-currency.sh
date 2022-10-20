@@ -193,7 +193,7 @@ packageChaincode
 installChaincode
 queryInstalled
 approveForMyOrg1
-# checkCommitReadyness
+checkCommitReadyness
 # approveForMyOrg2
 # checkCommitReadyness
 # commitChaincodeDefination

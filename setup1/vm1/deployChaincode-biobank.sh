@@ -99,8 +99,8 @@ approveForMyOrg1() {
 
 }
 
-queryInstalled
-approveForMyOrg1
+# queryInstalled
+# approveForMyOrg1
 
 checkCommitReadyness() {
     setGlobalsForPeer0Org1
@@ -110,7 +110,7 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
-checkCommitReadyness
+# checkCommitReadyness
 
 commitChaincodeDefination() {
     setGlobalsForPeer0Org1
@@ -189,11 +189,11 @@ chaincodeQuery() {
 # Run this function if you add any new dependency in chaincode
 # presetup
 
-# packageChaincode
-# installChaincode
-# queryInstalled
-# approveForMyOrg1
-# checkCommitReadyness
+packageChaincode
+installChaincode
+queryInstalled
+approveForMyOrg1
+checkCommitReadyness
 # approveForMyOrg2
 # checkCommitReadyness
 # commitChaincodeDefination

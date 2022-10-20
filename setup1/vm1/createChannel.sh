@@ -20,7 +20,7 @@ setGlobalsForPeer1Org1(){
 }
 
 createChannel(){
-    # rm -rf ./channel-artifacts/*
+    rm -rf ./channel-artifacts/*
     setGlobalsForPeer0Org1
     
     # Replace localhost with your orderer's vm IP address
@@ -54,6 +54,6 @@ updateAnchorPeers(){
 
 # removeOldCrypto
 
-createChannel
-# joinChannel
-# updateAnchorPeers
+# createChannel
+joinChannel
+updateAnchorPeers
