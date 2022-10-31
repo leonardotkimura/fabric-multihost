@@ -41,17 +41,17 @@ setGlobalsForPeer1Org1() {
 
 presetup() {
     echo Vendoring Go dependencies ...
-    pushd ./../../artifacts/src/github.com/fabcar/go
-    GO111MODULE=on go mod vendor
+    pushd ./../../artifacts/src/fabcar
+    npm install
     popd
     echo Finished vendoring Go dependencies
 }
 # presetup
 
 CHANNEL_NAME="mychannel"
-CC_RUNTIME_LANGUAGE="golang"
+CC_RUNTIME_LANGUAGE="node"
 VERSION="1"
-CC_SRC_PATH="./../../artifacts/src/github.com/fabcar/go"
+CC_SRC_PATH="./../../artifacts/src/fabcar"
 CC_NAME="fabcar"
 
 packageChaincode() {
@@ -110,7 +110,7 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
-checkCommitReadyness
+# checkCommitReadyness
 
 commitChaincodeDefination() {
     setGlobalsForPeer0Org1
@@ -193,7 +193,7 @@ chaincodeQuery() {
 # installChaincode
 # queryInstalled
 # approveForMyOrg1
-# checkCommitReadyness
+checkCommitReadyness
 # approveForMyOrg2
 # checkCommitReadyness
 # commitChaincodeDefination
