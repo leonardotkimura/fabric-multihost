@@ -3,7 +3,7 @@ export ORDERER_CA=${PWD}/../vm4/crypto-config/ordererOrganizations/amazonbiobank
 export PEER0_ORG1_CA=${PWD}/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
-export CHANNEL_NAME=channel2
+export CHANNEL_NAME=mychannel
 
 setGlobalsForPeer0Org1() {
     export CORE_PEER_LOCALMSPID="Org1MSP"
@@ -44,6 +44,6 @@ updateAnchorPeers() {
 
 # updateAnchorPeers
 
-# fetchChannelBlock
-# joinChannel
+fetchChannelBlock
+joinChannel
 updateAnchorPeers
