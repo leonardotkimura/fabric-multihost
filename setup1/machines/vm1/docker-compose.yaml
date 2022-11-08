@@ -66,9 +66,9 @@ services:
       - CORE_PEER_CHAINCODEADDRESS=peer0.org1.amazonbiobank.mooo.com:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
       # Peer used to bootstrap gossip within organisation
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.amazonbiobank.mooo.com:10751
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.amazonbiobank.mooo.com:11751
       # Exposed for discovery Service
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.amazonbiobank.mooo.com:10751
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.amazonbiobank.mooo.com:11751
 
       # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
 
@@ -166,4 +166,4 @@ services:
       - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/:/etc/hyperledger/channel/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/
       - ./../vm2/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/:/etc/hyperledger/channel/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/
       - ./../vm3/crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/:/etc/hyperledger/channel/crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/
-      - ./../vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/:/etc/hyperledger/channel/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/
+      - ./../vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/:/etc/hyperledger/channel/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/

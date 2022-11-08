@@ -1,5 +1,5 @@
 export CORE_PEER_TLS_ENABLED=true
-export ORDERER_CA=${PWD}/../vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/msp/tlscacerts/tlsca.amazonbiobank.mooo.com-cert.pem
+export ORDERER_CA=${PWD}/../vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/msp/tlscacerts/tlsca.amazonbiobank.mooo.com-cert.pem
 export PEER0_ORG1_CA=${PWD}/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/ca.crt
 export PEER0_ORG2_CA=${PWD}/../vm2/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/peers/peer0.org2.amazonbiobank.mooo.com/tls/ca.crt
 export PEER0_ORG3_CA=${PWD}/../vm3/crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer0.org3.amazonbiobank.mooo.com/tls/ca.crt

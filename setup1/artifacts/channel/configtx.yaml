@@ -3,7 +3,7 @@ Organizations:
     - &OrdererOrg
         Name: OrdererOrg
         ID: OrdererMSP
-        MSPDir: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/msp
+        MSPDir: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/msp
 
         Policies:
             Readers:
@@ -132,8 +132,8 @@ Orderer: &OrdererDefaults
         Consenters:
         - Host: orderer.amazonbiobank.mooo.com
           Port: 10750
-          ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
-          ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+          ClientTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+          ServerTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
     Addresses:
         - orderer.amazonbiobank.mooo.com:10750
 
@@ -198,16 +198,16 @@ Profiles:
                 Consenters:
                 - Host: orderer.amazonbiobank.mooo.com
                   Port: 10750
-                  ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
-                  ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+                  ClientTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
+                  ServerTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
                 - Host: orderer2.amazonbiobank.mooo.com
                   Port: 10751
-                  ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
-                  ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
+                  ClientTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
+                  ServerTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
                 - Host: orderer3.amazonbiobank.mooo.com
                   Port: 10752
-                  ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
-                  ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
+                  ClientTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
+                  ServerTLSCert: ../../machines/vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
             Addresses:
                 - orderer.amazonbiobank.mooo.com:10750
                 - orderer2.amazonbiobank.mooo.com:10751
