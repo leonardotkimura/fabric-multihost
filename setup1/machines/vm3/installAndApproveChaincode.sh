@@ -24,17 +24,17 @@ setGlobalsForPeer1Org3() {
 
 presetup() {
     echo Vendoring Go dependencies ...
-    pushd ./../../artifacts/src/github.com/fabcar/go
-    GO111MODULE=on go mod vendor
+    pushd ./../../artifacts/src/fabcar
+    npm install
     popd
     echo Finished vendoring Go dependencies
 }
 # presetup
 
 CHANNEL_NAME="mychannel"
-CC_RUNTIME_LANGUAGE="golang"
+CC_RUNTIME_LANGUAGE="node"
 VERSION="1"
-CC_SRC_PATH="./../../artifacts/src/github.com/fabcar/go"
+CC_SRC_PATH="./../../artifacts/src/fabcar"
 CC_NAME="fabcar"
 
 packageChaincode() {
@@ -71,7 +71,7 @@ queryInstalled() {
 approveForMyOrg3() {
     setGlobalsForPeer0Org3
 
-    peer lifecycle chaincode approveformyorg -o 10.4.0.46:7050 \
+    peer lifecycle chaincode approveformyorg -o 10.4.0.46:13750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
@@ -91,4 +91,12 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 3 ===================== "
 }
 
+# checkCommitReadyness
+
+# presetup
+
+packageChaincode
+installChaincode
+queryInstalled
+approveForMyOrg3
 checkCommitReadyness

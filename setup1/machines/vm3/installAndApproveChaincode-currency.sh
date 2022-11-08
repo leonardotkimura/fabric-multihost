@@ -33,7 +33,7 @@ presetup() {
 
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="node"
-VERSION="3"
+VERSION="1"
 CC_SRC_PATH="./../../artifacts/src/currency-contract"
 CC_NAME="currency"
 

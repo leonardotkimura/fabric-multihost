@@ -79,8 +79,8 @@ approveForMyOrg2() {
 
     echo "===================== chaincode approved from org 2 ===================== "
 }
-queryInstalled
-approveForMyOrg2
+# queryInstalled
+# approveForMyOrg2
 
 checkCommitReadyness() {
 
@@ -91,4 +91,12 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
+# checkCommitReadyness
+
+# presetup
+
+packageChaincode
+installChaincode
+queryInstalled
+approveForMyOrg2
 checkCommitReadyness

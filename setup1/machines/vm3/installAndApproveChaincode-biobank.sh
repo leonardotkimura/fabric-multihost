@@ -91,4 +91,12 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 3 ===================== "
 }
 
+# checkCommitReadyness
+
+# presetup
+
+packageChaincode
+installChaincode
+queryInstalled
+approveForMyOrg3
 checkCommitReadyness

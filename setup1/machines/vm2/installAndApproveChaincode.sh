@@ -23,7 +23,7 @@ setGlobalsForPeer1Org2() {
 
 presetup() {
     echo Vendoring Go dependencies ...
-    pushd ./../../artifacts/src/biobank-contract
+    pushd ./../../artifacts/src/fabcar
     npm install
     popd
     echo Finished vendoring Go dependencies
@@ -33,8 +33,8 @@ presetup() {
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="node"
 VERSION="1"
-CC_SRC_PATH="./../../artifacts/src/biobank-contract"
-CC_NAME="biobank"
+CC_SRC_PATH="./../../artifacts/src/fabcar"
+CC_NAME="fabcar"
 
 packageChaincode() {
     rm -rf ${CC_NAME}.tar.gz
@@ -71,7 +71,7 @@ approveForMyOrg2() {
     setGlobalsForPeer0Org2
 
     # Replace localhost with your orderer's vm IP address
-    peer lifecycle chaincode approveformyorg -o 10.4.0.46:7050 \
+    peer lifecycle chaincode approveformyorg -o 10.4.0.46:13750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com --tls $CORE_PEER_TLS_ENABLED \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
@@ -91,4 +91,12 @@ checkCommitReadyness() {
     echo "===================== checking commit readyness from org 1 ===================== "
 }
 
+# checkCommitReadyness
+
+# presetup
+
+packageChaincode
+installChaincode
+queryInstalled
+approveForMyOrg2
 checkCommitReadyness
