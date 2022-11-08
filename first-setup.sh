@@ -43,3 +43,4 @@ cat ./docker-aliases.sh >> ~/.bashrc
 source ~/.bashrc
 
 
+echo 'export PATH=$PATH:/home/ubuntu/fabric-samples/bin' >> ~/.bashrc
