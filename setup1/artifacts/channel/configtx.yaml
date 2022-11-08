@@ -131,11 +131,11 @@ Orderer: &OrdererDefaults
     EtcdRaft:
         Consenters:
         - Host: orderer.amazonbiobank.mooo.com
-          Port: 13750
+          Port: 10750
           ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
           ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
     Addresses:
-        - orderer.amazonbiobank.mooo.com:13750
+        - orderer.amazonbiobank.mooo.com:10750
 
     BatchTimeout: 2s
     BatchSize:
@@ -197,21 +197,21 @@ Profiles:
             EtcdRaft:
                 Consenters:
                 - Host: orderer.amazonbiobank.mooo.com
-                  Port: 13750
+                  Port: 10750
                   ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
                   ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/tls/server.crt
                 - Host: orderer2.amazonbiobank.mooo.com
-                  Port: 13751
+                  Port: 10751
                   ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
                   ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer2.amazonbiobank.mooo.com/tls/server.crt
                 - Host: orderer3.amazonbiobank.mooo.com
-                  Port: 13752
+                  Port: 10752
                   ClientTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
                   ServerTLSCert: ../../machines/vm4/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer3.amazonbiobank.mooo.com/tls/server.crt
             Addresses:
-                - orderer.amazonbiobank.mooo.com:13750
-                - orderer2.amazonbiobank.mooo.com:13751
-                - orderer3.amazonbiobank.mooo.com:13752
+                - orderer.amazonbiobank.mooo.com:10750
+                - orderer2.amazonbiobank.mooo.com:10751
+                - orderer3.amazonbiobank.mooo.com:10752
 
             Organizations:
             - *OrdererOrg

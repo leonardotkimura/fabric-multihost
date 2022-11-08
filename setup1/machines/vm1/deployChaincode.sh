@@ -88,7 +88,7 @@ approveForMyOrg1() {
     setGlobalsForPeer0Org1
     # set -x
     # Replace localhost with your orderer's vm IP address
-    peer lifecycle chaincode approveformyorg -o 10.4.0.46:13750 \
+    peer lifecycle chaincode approveformyorg -o 10.4.0.168:10750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com --tls \
         --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${VERSION} \
         --init-required --package-id ${PACKAGE_ID} \
@@ -114,7 +114,7 @@ checkCommitReadyness() {
 
 commitChaincodeDefination() {
     setGlobalsForPeer0Org1
-    peer lifecycle chaincode commit -o localhost:13750 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
+    peer lifecycle chaincode commit -o localhost:10750 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
         --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA \
         --channelID $CHANNEL_NAME --name ${CC_NAME} \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
@@ -135,7 +135,7 @@ queryCommitted() {
 
 chaincodeInvokeInit() {
     setGlobalsForPeer0Org1
-    peer chaincode invoke -o localhost:13750 \
+    peer chaincode invoke -o localhost:10750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
         --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA \
         -C $CHANNEL_NAME -n ${CC_NAME} \
@@ -153,7 +153,7 @@ chaincodeInvoke() {
     setGlobalsForPeer0Org1
 
     ## Create Car
-    peer chaincode invoke -o localhost:13750 \
+    peer chaincode invoke -o localhost:10750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
         --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA \
         -C $CHANNEL_NAME -n ${CC_NAME} \
@@ -163,7 +163,7 @@ chaincodeInvoke() {
         -c '{"function": "createCar","Args":["Car-ABCDEEE", "Audi", "R8", "Red", "Sandip"]}'
 
     ## Init ledger
-    # peer chaincode invoke -o localhost:13750 \
+    # peer chaincode invoke -o localhost:10750 \
     #     --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
     #     --tls $CORE_PEER_TLS_ENABLED \
     #     --cafile $ORDERER_CA \

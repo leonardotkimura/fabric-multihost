@@ -26,11 +26,11 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
-      - ORDERER_GENERAL_LISTENPORT=13750
+      - ORDERER_GENERAL_LISTENPORT=10750
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 13750:13750
+      - 10750:10750
       - 8443:8443
     networks:
       - test
@@ -61,11 +61,11 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
-      - ORDERER_GENERAL_LISTENPORT=13751
+      - ORDERER_GENERAL_LISTENPORT=10751
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 13751:13751
+      - 10751:10751
       - 8444:8443
     networks:
       - test
@@ -97,11 +97,11 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
-      - ORDERER_GENERAL_LISTENPORT=13752
+      - ORDERER_GENERAL_LISTENPORT=10752
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
-      - 13752:13752
+      - 10752:10752
       - 8445:8443
     networks:
       - test
