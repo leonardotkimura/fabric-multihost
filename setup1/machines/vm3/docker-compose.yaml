@@ -65,7 +65,7 @@ services:
       # - CORE_PEER_CHAINCODEADDRESS=peer0.org3.amazonbiobank.mooo.com:7052
       # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
       # Peer used to bootstrap gossip within organisation
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org3.amazonbiobank.mooo.com:11051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org3.amazonbiobank.mooo.com:12751
       # Exposed for discovery Service
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org3.amazonbiobank.mooo.com:12751
 
