@@ -70,7 +70,7 @@ services:
       # Exposed for discovery Service
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.amazonbiobank.mooo.com:11751
 
-      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
+      - CORE_OPERATIONS_LISTENADDRESS=peer0.org1.amazonbiobank.mooo.com:9443
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
@@ -86,6 +86,7 @@ services:
       - couchdb0
     ports:
       - 7051:7051
+      - 9443:9443
     volumes:
       - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
       - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls:/etc/hyperledger/crypto/peer/tls

@@ -34,7 +34,8 @@ P0PORT=11751
 CAPORT=11754
 P0PORT1=8051
 PEERPEM=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/tlscacerts/tls-localhost-7054-ca-org1-amazonbiobank-mooo-com.pem
-PEERPEM1=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer1.org1.amazonbiobank.mooo.com/tls/tlscacerts/tls-localhost-7054-ca-org1-amazonbiobank-mooo-com.pem
+PEERPEM1=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/tlscacerts/tls-localhost-7054-ca-org1-amazonbiobank-mooo-com.pem
+# PEERPEM1=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer1.org1.amazonbiobank.mooo.com/tls/tlscacerts/tls-localhost-7054-ca-org1-amazonbiobank-mooo-com.pem
 CAPEM=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/msp/tlscacerts/ca.crt
 
 echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM $PEERPEM1 $P0PORT1)" > connection-org1.json

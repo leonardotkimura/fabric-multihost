@@ -26,12 +26,14 @@ services:
       - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
       - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
+      - ORDERER_OPERATIONS_LISTENADDRESS=orderer.amazonbiobank.mooo.com:9443
       - ORDERER_GENERAL_LISTENPORT=10750
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderers
     command: orderer
     ports:
       - 10750:10750
       - 8443:8443
+      - 9443:9443
     networks:
       - test
     volumes:
