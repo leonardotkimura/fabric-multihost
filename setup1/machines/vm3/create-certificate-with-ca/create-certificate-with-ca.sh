@@ -27,10 +27,10 @@ createcertificatesForOrg3() {
   echo
   fabric-ca-client register --caname ca.org3.amazonbiobank.mooo.com --id.name peer0 --id.secret peer0pw --id.type peer --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
 
-  echo
-  echo "Register peer1"
-  echo
-  fabric-ca-client register --caname ca.org3.amazonbiobank.mooo.com --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
+  # echo
+  # echo "Register peer1"
+  # echo
+  # fabric-ca-client register --caname ca.org3.amazonbiobank.mooo.com --id.name peer1 --id.secret peer1pw --id.type peer --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
 
   echo
   echo "Register user"
@@ -77,23 +77,23 @@ createcertificatesForOrg3() {
 
   # Peer1
 
-  mkdir -p ../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com
+  # mkdir -p ../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com
 
-  echo
-  echo "## Generate the peer1 msp"
-  echo
-  fabric-ca-client enroll -u https://peer1:peer1pw@localhost:10054 --caname ca.org3.amazonbiobank.mooo.com -M ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/msp --csr.hosts peer1.org3.amazonbiobank.mooo.com --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
+  # echo
+  # echo "## Generate the peer1 msp"
+  # echo
+  # fabric-ca-client enroll -u https://peer1:peer1pw@localhost:10054 --caname ca.org3.amazonbiobank.mooo.com -M ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/msp --csr.hosts peer1.org3.amazonbiobank.mooo.com --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
 
-  cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/msp/config.yaml ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/msp/config.yaml
+  # cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/msp/config.yaml ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/msp/config.yaml
 
-  echo
-  echo "## Generate the peer1-tls certificates"
-  echo
-  fabric-ca-client enroll -u https://peer1:peer1pw@localhost:10054 --caname ca.org3.amazonbiobank.mooo.com -M ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls --enrollment.profile tls --csr.hosts peer1.org3.amazonbiobank.mooo.com --csr.hosts localhost --csr.hosts peer1.org3.amazonbiobank.duckdns.org  --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
+  # echo
+  # echo "## Generate the peer1-tls certificates"
+  # echo
+  # fabric-ca-client enroll -u https://peer1:peer1pw@localhost:10054 --caname ca.org3.amazonbiobank.mooo.com -M ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls --enrollment.profile tls --csr.hosts peer1.org3.amazonbiobank.mooo.com --csr.hosts localhost --csr.hosts peer1.org3.amazonbiobank.duckdns.org  --tls.certfiles ${PWD}/fabric-ca/org3/tls-cert.pem
 
-  cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/tlscacerts/* ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/ca.crt
-  cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/signcerts/* ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/server.crt
-  cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/keystore/* ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/server.key
+  # cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/tlscacerts/* ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/ca.crt
+  # cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/signcerts/* ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/server.crt
+  # cp ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/keystore/* ${PWD}/../crypto-config/peerOrganizations/org3.amazonbiobank.mooo.com/peers/peer1.org3.amazonbiobank.mooo.com/tls/server.key
 
   # --------------------------------------------------------------------------------------------------
 
