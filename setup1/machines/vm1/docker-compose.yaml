@@ -70,7 +70,7 @@ services:
       # Exposed for discovery Service
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.amazonbiobank.mooo.com:11751
 
-      - CORE_OPERATIONS_LISTENADDRESS=peer0.org1.amazonbiobank.mooo.com:9443
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
