@@ -11,7 +11,7 @@ services:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 6984:5984
+      - 5984:5984
     networks:
       - test
 
@@ -74,27 +74,27 @@ services:
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
 
       - CORE_PEER_ID=peer1.org1.amazonbiobank.mooo.com
-      - CORE_PEER_ADDRESS=peer1.org1.amazonbiobank.mooo.com:8051
-      - CORE_PEER_LISTENADDRESS=0.0.0.0:8051
-      - CORE_PEER_CHAINCODEADDRESS=peer1.org1.amazonbiobank.mooo.com:8052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+      - CORE_PEER_ADDRESS=peer1.org1.amazonbiobank.mooo.com:7051
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+      - CORE_PEER_CHAINCODEADDRESS=peer1.org1.amazonbiobank.mooo.com:7052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
       # Exposed for discovery Service
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.amazonbiobank.mooo.com:11751
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.amazonbiobank.mooo.com:11751
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org1.amazonbiobank.mooo.com:14751
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org1.amazonbiobank.mooo.com:14751
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
       - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
       - CORE_METRICS_PROVIDER=prometheus
-      # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
     ports:
-      - 8051:8051
+      - 7051:7051
     volumes:
       - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer1.org1.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
       - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer1.org1.amazonbiobank.mooo.com/tls:/etc/hyperledger/crypto/peer/tls
