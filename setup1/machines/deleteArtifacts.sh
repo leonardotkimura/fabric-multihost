@@ -21,3 +21,7 @@ cd -
 cd vm4
 sudo rm -r crypto-config
 cd -
+
+cd vm5
+sudo rm -r crypto-config
+cd -
