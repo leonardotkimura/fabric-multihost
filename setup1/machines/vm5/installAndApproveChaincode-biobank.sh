@@ -17,7 +17,7 @@ export CHANNEL_NAME=mychannel
 setGlobalsForPeer1Org2() {
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER1_ORG2_CA
-    export CORE_PEER_MSPCONFIGPATH=${PWD}/../vm1/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/users/Admin@org2.amazonbiobank.mooo.com/msp
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/../vm2/crypto-config/peerOrganizations/org2.amazonbiobank.mooo.com/users/Admin@org2.amazonbiobank.mooo.com/msp
     export CORE_PEER_ADDRESS=localhost:7051
 
 }
