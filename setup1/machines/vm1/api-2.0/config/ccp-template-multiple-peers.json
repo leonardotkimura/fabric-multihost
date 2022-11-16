@@ -27,7 +27,7 @@
     },
     "peers": {
         "peer0.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "grpcs://peer0.org1.amazonbiobank.mooo.com:${P0PORT}",
+            "url": "grpcs://peer0.org${ORG}.amazonbiobank.mooo.com:${P0PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
@@ -37,7 +37,7 @@
             }
         },
 	"peer1.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "grpcs://peer1.org1.amazonbiobank.mooo.com:${P0PORT}",
+            "url": "grpcs://peer1.org${ORG}.amazonbiobank.mooo.com:${P1PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM1}"
             },
@@ -47,7 +47,7 @@
             }
         },
     "peer2.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "grpcs://peer2.org1.amazonbiobank.mooo.com:${P0PORT1}",
+            "url": "grpcs://peer2.org${ORG}.amazonbiobank.mooo.com:${P2PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM1}"
             },
@@ -57,7 +57,7 @@
             }
         },
     "peer3.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "grpcs://peer3.org1.amazonbiobank.mooo.com:${P0PORT1}",
+            "url": "grpcs://peer3.org${ORG}.amazonbiobank.mooo.com:${P3PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM1}"
             },
@@ -71,7 +71,7 @@
     },
     "certificateAuthorities": {
         "ca.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "https://ca.org1.amazonbiobank.mooo.com:${CAPORT}",
+            "url": "https://ca.org${ORG}.amazonbiobank.mooo.com:${CAPORT}",
             "caName": "ca.org${ORG}.amazonbiobank.mooo.com",
             "tlsCACerts": {
                 "pem": "${CAPEM}"

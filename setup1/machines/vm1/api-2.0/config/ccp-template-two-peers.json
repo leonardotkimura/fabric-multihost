@@ -25,7 +25,7 @@
     },
     "peers": {
         "peer0.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "grpcs://peer0.org1.amazonbiobank.mooo.com:${P0PORT}",
+            "url": "grpcs://peer0.org${ORG}.amazonbiobank.mooo.com:${P0PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
@@ -35,7 +35,7 @@
             }
         },
 	"peer1.org${ORG}.amazonbiobank.mooo.com": {
-            "url": "grpcs://peer1.org1.amazonbiobank.mooo.com:${P0PORT1}",
+            "url": "grpcs://peer1.org${ORG}.amazonbiobank.mooo.com:${P0PORT1}",
             "tlsCACerts": {
                 "pem": "${PEERPEM1}"
             },

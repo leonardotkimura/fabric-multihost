@@ -94,6 +94,7 @@ services:
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
     ports:
+      - 9443:9443
       - 7051:7051
     volumes:
       - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer3.org1.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
