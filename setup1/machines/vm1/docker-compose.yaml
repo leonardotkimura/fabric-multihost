@@ -65,6 +65,9 @@ services:
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
       - CORE_PEER_CHAINCODEADDRESS=peer0.org1.amazonbiobank.mooo.com:7052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+
+      - CORE_PEER_LIMITS_CONCURRENCY_ENDORSERSERVICE=0
+      - CORE_PEER_LIMITS_CONCURRENCY_DELIVERSERVICE=0
       # Peer used to bootstrap gossip within organisation
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.amazonbiobank.mooo.com:11751
       # Exposed for discovery Service
@@ -82,6 +85,7 @@ services:
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+      
     depends_on:
       - couchdb0
     ports:
