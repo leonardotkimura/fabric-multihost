@@ -421,12 +421,12 @@ peer:
         orgMembersAllowedAccess: false
 
     # Limits is used to configure some internal resource limits.
-    limits:
+    # limits:
       # Concurrency limits the number of concurrently running system chaincode requests.
       # This option is only supported for qscc at this time.
-      concurrency:
-        qscc: 5000
-        endorserService: 0
+    #   concurrency:
+        # qscc: 5000
+        # endorserService: 0
 
 ###############################################################################
 #
