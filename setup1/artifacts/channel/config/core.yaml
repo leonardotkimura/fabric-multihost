@@ -426,6 +426,7 @@ peer:
       # This option is only supported for qscc at this time.
       concurrency:
         qscc: 5000
+        endorserService: 0
 
 ###############################################################################
 #
