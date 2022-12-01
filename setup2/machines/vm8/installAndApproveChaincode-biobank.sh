@@ -1,24 +1,24 @@
 export CORE_PEER_TLS_ENABLED=true
 export ORDERER_CA=${PWD}/../vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/msp/tlscacerts/tlsca.amazonbiobank.mooo.com-cert.pem
-export PEER3_ORG1_CA=${PWD}/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer3.org1.amazonbiobank.mooo.com/tls/ca.crt
+export PEER0_ORG8_CA=${PWD}/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/peers/peer0.org8.amazonbiobank.mooo.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
 
 export CHANNEL_NAME=mychannel
 
-# setGlobalsForPeer0Org1() {
-#     export CORE_PEER_LOCALMSPID="Org1MSP"
-#     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG1_CA
-#     export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/users/Admin@org1.amazonbiobank.mooo.com/msp
-#     export CORE_PEER_ADDRESS=localhost:11051
-
-# }
-
-setGlobalsForPeer3Org1() {
-    export CORE_PEER_LOCALMSPID="Org1MSP"
-    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG1_CA
-    export CORE_PEER_MSPCONFIGPATH=${PWD}/../vm1/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/users/Admin@org1.amazonbiobank.mooo.com/msp
+setGlobalsForPeer0Org8() {
+    export CORE_PEER_LOCALMSPID="Org8MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG8_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/users/Admin@org8.amazonbiobank.mooo.com/msp
     export CORE_PEER_ADDRESS=localhost:7051
+
+}
+
+setGlobalsForPeer1Org8() {
+    export CORE_PEER_LOCALMSPID="Org8MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG8_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/users/Admin@org8.amazonbiobank.mooo.com/msp
+    export CORE_PEER_ADDRESS=localhost:12051
 
 }
 
@@ -39,37 +39,37 @@ CC_NAME="biobank"
 
 packageChaincode() {
     rm -rf ${CC_NAME}.tar.gz
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
     peer lifecycle chaincode package ${CC_NAME}.tar.gz \
         --path ${CC_SRC_PATH} --lang ${CC_RUNTIME_LANGUAGE} \
         --label ${CC_NAME}_${VERSION}
-    echo "===================== Chaincode is packaged on peer3.org1 ===================== "
+    echo "===================== Chaincode is packaged on peer0.org8 ===================== "
 }
 # packageChaincode
 
 installChaincode() {
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
     peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    echo "===================== Chaincode is installed on peer3.org1 ===================== "
+    echo "===================== Chaincode is installed on peer0.org8 ===================== "
 
 }
 
 # installChaincode
 
 queryInstalled() {
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
     peer lifecycle chaincode queryinstalled >&log.txt
 
     cat log.txt
     PACKAGE_ID=$(sed -n "/${CC_NAME}_${VERSION}/{s/^Package ID: //; s/, Label:.*$//; p;}" log.txt)
     echo PackageID is ${PACKAGE_ID}
-    echo "===================== Query installed successful on peer3.org1 on channel ===================== "
+    echo "===================== Query installed successful on peer0.org8 on channel ===================== "
 }
 
 # queryInstalled
 
-approveForMyOrg1() {
-    setGlobalsForPeer3Org1
+approveForMyOrg8() {
+    setGlobalsForPeer0Org8
 
     peer lifecycle chaincode approveformyorg -o 10.4.0.168:10750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com --tls $CORE_PEER_TLS_ENABLED \
@@ -77,18 +77,18 @@ approveForMyOrg1() {
         --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
         --sequence ${VERSION}
 
-    echo "===================== chaincode approved from org 1 ===================== "
+    echo "===================== chaincode approved from org 3 ===================== "
 }
 # queryInstalled
-# approveForMyOrg1
+# approveForMyOrg8
 
 checkCommitReadyness() {
 
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER3_ORG1_CA \
+        --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG8_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
-    echo "===================== checking commit readyness from org 1 ===================== "
+    echo "===================== checking commit readyness from org 3 ===================== "
 }
 
 # checkCommitReadyness
@@ -97,6 +97,6 @@ checkCommitReadyness() {
 
 packageChaincode
 installChaincode
-# queryInstalled
-# approveForMyOrg1
-# checkCommitReadyness
+queryInstalled
+approveForMyOrg8
+checkCommitReadyness

@@ -4,102 +4,135 @@ networks:
   test:
 
 services:
-  couchdb1:
-    container_name: couchdb1
+  # ca-org8:
+  #   image: hyperledger/fabric-ca
+  #   environment:
+  #     - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+  #     - FABRIC_CA_SERVER_CA_NAME=ca.org8.amazonbiobank.mooo.com
+  #     - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org8.amazonbiobank.mooo.com-cert.pem
+  #     - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/priv_sk
+  #     - FABRIC_CA_SERVER_TLS_ENABLED=true
+  #     - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-tls/tlsca.org8.amazonbiobank.mooo.com-cert.pem
+  #     - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-tls/priv_sk
+  #   ports:
+  #     - "9054:7054"
+  #   command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+  #   volumes:
+  #     - ../../artifacts/channel/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/ca/:/etc/hyperledger/fabric-ca-server-config
+  #     - ../../artifacts/channel/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/tlsca/:/etc/hyperledger/fabric-ca-server-tls
+  #   container_name: ca.org8.amazonbiobank.mooo.com
+  #   hostname: ca.org8.amazonbiobank.mooo.com
+  #   networks:
+  #     - test
+
+  couchdb4:
+    container_name: couchdb4
     image: hyperledger/fabric-couchdb
     environment:
       - COUCHDB_USER=
       - COUCHDB_PASSWORD=
     ports:
-      - 5984:5984
+      - 9984:5984
     networks:
       - test
 
-  # peer0.org1.amazonbiobank.mooo.com:
-  #   container_name: peer0.org1.amazonbiobank.mooo.com
-  #   extends:
-  #     file: base.yaml
-  #     service: peer-base
+  # couchdb5:
+  #   container_name: couchdb5
+  #   image: hyperledger/fabric-couchdb
   #   environment:
-  #     - FABRIC_LOGGING_SPEC=DEBUG
-  #     - ORDERER_GENERAL_LOGLEVEL=DEBUG
-  #     - CORE_PEER_LOCALMSPID=Org1MSP
-
-  #     - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
-
-  #     - CORE_PEER_ID=peer0.org1.amazonbiobank.mooo.com
-  #     - CORE_PEER_ADDRESS=peer0.org1.amazonbiobank.mooo.com:7051
-  #     - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
-  #     - CORE_PEER_CHAINCODEADDRESS=peer0.org1.amazonbiobank.mooo.com:7052
-  #     - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
-  #     # Peer used to bootstrap gossip within organisation
-  #     - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org1.amazonbiobank.mooo.com:11751
-  #     # Exposed for discovery Service
-  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.amazonbiobank.mooo.com:11751
-
-  #     # - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9440
-
-  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb0:5984
-  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
-  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
-  #     - CORE_METRICS_PROVIDER=prometheus
-  #     - CORE_PEER_TLS_ENABLED=true
-  #     - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
-  #     - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
-  #     - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
-  #     - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
-  #   depends_on:
-  #     - couchdb0
+  #     - COUCHDB_USER=
+  #     - COUCHDB_PASSWORD=
   #   ports:
-  #     - 7051:7051
-  #   volumes:
-  #     - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
-  #     - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls:/etc/hyperledger/crypto/peer/tls
-  #     - /var/run/:/host/var/run/
-  #     - ./:/etc/hyperledger/channel/
+  #     - 10984:5984
   #   networks:
   #     - test
 
-  peer3.org1.amazonbiobank.mooo.com:
-    container_name: peer3.org1.amazonbiobank.mooo.com
+  peer0.org8.amazonbiobank.mooo.com:
+    container_name: peer0.org8.amazonbiobank.mooo.com
     extends:
       file: base.yaml
       service: peer-base
     environment:
       - FABRIC_LOGGING_SPEC=DEBUG
-      - ORDERER_GENERAL_LOGLEVEL=debug
-      - CORE_PEER_LOCALMSPID=Org1MSP
+      - ORDERER_GENERAL_LOGLEVEL=DEBUG
+      - CORE_PEER_LOCALMSPID=Org8MSP
 
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
 
-      - CORE_PEER_ID=peer3.org1.amazonbiobank.mooo.com
-      - CORE_PEER_ADDRESS=peer3.org1.amazonbiobank.mooo.com:7051
+      - CORE_PEER_ID=peer0.org8.amazonbiobank.mooo.com
+      - CORE_PEER_ADDRESS=peer0.org8.amazonbiobank.mooo.com:7051
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7051
-      - CORE_PEER_CHAINCODEADDRESS=peer3.org1.amazonbiobank.mooo.com:7052
-      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      # - CORE_PEER_CHAINCODEADDRESS=peer0.org8.amazonbiobank.mooo.com:7052
+      # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      # Peer used to bootstrap gossip within organisation
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org8.amazonbiobank.mooo.com:18751
       # Exposed for discovery Service
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer3.org1.amazonbiobank.mooo.com:18751
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer3.org1.amazonbiobank.mooo.com:18751
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org8.amazonbiobank.mooo.com:18751
+
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
+
+      - CORE_PEER_LIMITS_CONCURRENCY_ENDORSERSERVICE=0
+      - CORE_PEER_LIMITS_CONCURRENCY_DELIVERSERVICE=0
 
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
-      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb1:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb4:5984
       - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
       - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
       - CORE_METRICS_PROVIDER=prometheus
-      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9443
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
       - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+    depends_on:
+      - couchdb4
     ports:
-      - 9443:9443
       - 7051:7051
+      - 9443:9443
     volumes:
-      - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer3.org1.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
-      - ./crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer3.org1.amazonbiobank.mooo.com/tls:/etc/hyperledger/crypto/peer/tls
+      - ./crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/peers/peer0.org8.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
+      - ./crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/peers/peer0.org8.amazonbiobank.mooo.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./:/etc/hyperledger/channel/
     networks:
       - test
+
+  # peer1.org8.amazonbiobank.mooo.com:
+  #   container_name: peer1.org8.amazonbiobank.mooo.com
+  #   extends:
+  #     file: base.yaml
+  #     service: peer-base
+  #   environment:
+  #     - FABRIC_LOGGING_SPEC=DEBUG
+  #     - ORDERER_GENERAL_LOGLEVEL=debug
+  #     - CORE_PEER_LOCALMSPID=Org8MSP
+
+  #     - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
+
+  #     - CORE_PEER_ID=peer1.org8.amazonbiobank.mooo.com
+  #     - CORE_PEER_ADDRESS=peer1.org8.amazonbiobank.mooo.com:12051
+  #     - CORE_PEER_LISTENADDRESS=0.0.0.0:12051
+  #     # - CORE_PEER_CHAINCODEADDRESS=peer1.org1.amazonbiobank.mooo.com:8052
+  #     # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:8052
+  #     # Exposed for discovery Service
+  #     - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org8.amazonbiobank.mooo.com:12051
+  #     - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org8.amazonbiobank.mooo.com:12051
+
+  #     - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=couchdb5:5984
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+  #     - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+  #     - CORE_PEER_TLS_ENABLED=true
+  #     - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/crypto/peer/tls/server.crt
+  #     - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/crypto/peer/tls/server.key
+  #     - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/crypto/peer/tls/ca.crt
+  #     - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/crypto/peer/msp
+  #   ports:
+  #     - 12051:12051
+  #   volumes:
+  #     - ./crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/peers/peer1.org8.amazonbiobank.mooo.com/msp:/etc/hyperledger/crypto/peer/msp
+  #     - ./crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/peers/peer1.org8.amazonbiobank.mooo.com/tls:/etc/hyperledger/crypto/peer/tls
+  #     - /var/run/:/host/var/run/
+  #     - ./:/etc/hyperledger/channel/
+  #   networks:
+  #     - test

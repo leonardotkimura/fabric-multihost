@@ -24,7 +24,7 @@ setGlobalsForPeer1Org6() {
 
 presetup() {
     echo Vendoring Go dependencies ...
-    pushd ./../../artifacts/src/currency-contract
+    pushd ./../../artifacts/src/fabcar
     npm install
     popd
     echo Finished vendoring Go dependencies
@@ -34,8 +34,8 @@ presetup() {
 CHANNEL_NAME="mychannel"
 CC_RUNTIME_LANGUAGE="node"
 VERSION="1"
-CC_SRC_PATH="./../../artifacts/src/currency-contract"
-CC_NAME="currency"
+CC_SRC_PATH="./../../artifacts/src/fabcar"
+CC_NAME="fabcar"
 
 packageChaincode() {
     rm -rf ${CC_NAME}.tar.gz
@@ -92,6 +92,8 @@ checkCommitReadyness() {
 }
 
 # checkCommitReadyness
+
+# presetup
 
 packageChaincode
 installChaincode

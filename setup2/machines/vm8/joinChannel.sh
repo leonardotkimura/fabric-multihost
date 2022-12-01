@@ -1,21 +1,30 @@
 export CORE_PEER_TLS_ENABLED=true
 export ORDERER_CA=${PWD}/../vm0/crypto-config/ordererOrganizations/amazonbiobank.mooo.com/orderers/orderer.amazonbiobank.mooo.com/msp/tlscacerts/tlsca.amazonbiobank.mooo.com-cert.pem
-export PEER3_ORG1_CA=${PWD}/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer3.org1.amazonbiobank.mooo.com/tls/ca.crt
+export PEER0_ORG8_CA=${PWD}/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/peers/peer0.org8.amazonbiobank.mooo.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/../../artifacts/channel/config/
 
 export CHANNEL_NAME=mychannel
 
-setGlobalsForPeer3Org1() {
-    export CORE_PEER_LOCALMSPID="Org1MSP"
-    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER3_ORG1_CA
-    export CORE_PEER_MSPCONFIGPATH=${PWD}/../vm1/crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/users/Admin@org1.amazonbiobank.mooo.com/msp
+setGlobalsForPeer0Org8() {
+    export CORE_PEER_LOCALMSPID="Org8MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG8_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/users/Admin@org8.amazonbiobank.mooo.com/msp
     export CORE_PEER_ADDRESS=localhost:7051
+
+}
+
+setGlobalsForPeer1Org8() {
+    export CORE_PEER_LOCALMSPID="Org8MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG8_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/users/Admin@org8.amazonbiobank.mooo.com/msp
+    export CORE_PEER_ADDRESS=localhost:12051
 
 }
 
 fetchChannelBlock() {
     rm -rf ./channel-artifacts/*
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
+
     # Replace localhost with your orderer's vm IP address
     peer channel fetch 0 ./channel-artifacts/$CHANNEL_NAME.block -o 10.4.0.168:10750 \
         --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
@@ -25,16 +34,19 @@ fetchChannelBlock() {
 # fetchChannelBlock
 
 joinChannel() {
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
     peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block
 
+    # setGlobalsForPeer1Org8
+    # peer channel join -b ./channel-artifacts/$CHANNEL_NAME.block
 
 }
 
 # joinChannel
 
 updateAnchorPeers() {
-    setGlobalsForPeer3Org1
+    setGlobalsForPeer0Org8
+
     # Replace localhost with your orderer's vm IP address
     peer channel update -o 10.4.0.168:10750 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
         -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx \
@@ -46,4 +58,4 @@ updateAnchorPeers() {
 
 fetchChannelBlock
 joinChannel
-# updateAnchorPeers
+updateAnchorPeers
