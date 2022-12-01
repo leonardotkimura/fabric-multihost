@@ -1,0 +1,16 @@
+{
+    "__walletPath":  ".fabric-vscode/environments/biobank/wallets/Org1",
+    "__identityName": "Org1 Admin",
+    "__connectionProfilePath":".fabric-vscode/v2/environments/1 Org Local Fabric/gateways/Org1 Gateway.json",
+  
+    "walletPath": "fabric-multihost/setup1/artifacts/src/wallet",
+    "identityName": "admin",
+    "connectionProfilePath": "fabric-multihost/setup1/machines/vm1/api-2.0/config/connection-org1.json",
+  
+    "defaultCurrency": "BIO",
+    "defaultPrecision": 9,
+    "globalFormat": "0.000000000",
+  
+    "blockPrice": 1000
+  }
+  

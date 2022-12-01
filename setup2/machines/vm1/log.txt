@@ -1,0 +1,3 @@
+Installed chaincodes on peer:
+Package ID: currency_1:5d1a992642e6bcf41bdde58c1a66bc7282bb07cc4d3e4aad768461f8fe306b3b, Label: currency_1
+Package ID: biobank_1:21988fdd0351f442de32fd55a3f921f286ed63b727f71ae991940e9cda3ab6e3, Label: biobank_1
