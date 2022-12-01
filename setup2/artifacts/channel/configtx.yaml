@@ -63,7 +63,7 @@ Organizations:
 
         AnchorPeers:
             - Host: peer0.org2.amazonbiobank.mooo.com
-              Port: 9051
+              Port: 7051
 
     - &Org3
         Name: Org3MSP
@@ -88,7 +88,158 @@ Organizations:
 
         AnchorPeers:
             - Host: peer0.org3.amazonbiobank.mooo.com
-              Port: 11051
+              Port: 7051
+
+    - &Org4
+        Name: Org4MSP
+
+        ID: Org4MSP
+
+        MSPDir: ../../machines/vm4/crypto-config/peerOrganizations/org4.amazonbiobank.mooo.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin', 'Org4MSP.peer', 'Org4MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin', 'Org4MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org4MSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.org4.amazonbiobank.mooo.com
+              Port: 7051
+        
+    - &Org5
+        Name: Org5MSP
+
+        ID: Org5MSP
+
+        MSPDir: ../../machines/vm5/crypto-config/peerOrganizations/org5.amazonbiobank.mooo.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin', 'Org5MSP.peer', 'Org5MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin', 'Org5MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org5MSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.org5.amazonbiobank.mooo.com
+              Port: 7051
+    
+    - &Org6
+        Name: Org6MSP
+
+        ID: Org6MSP
+
+        MSPDir: ../../machines/vm6/crypto-config/peerOrganizations/org6.amazonbiobank.mooo.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org6MSP.admin', 'Org6MSP.peer', 'Org6MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org6MSP.admin', 'Org6MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org6MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org6MSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.org6.amazonbiobank.mooo.com
+              Port: 7051
+
+    - &Org7
+        Name: Org7MSP
+
+        ID: Org7MSP
+
+        MSPDir: ../../machines/vm7/crypto-config/peerOrganizations/org7.amazonbiobank.mooo.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org7MSP.admin', 'Org7MSP.peer', 'Org7MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org7MSP.admin', 'Org7MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org7MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org7MSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.org7.amazonbiobank.mooo.com
+              Port: 7051
+    
+    - &Org8
+        Name: Org8MSP
+
+        ID: Org8MSP
+
+        MSPDir: ../../machines/vm8/crypto-config/peerOrganizations/org8.amazonbiobank.mooo.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org8MSP.admin', 'Org8MSP.peer', 'Org8MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org8MSP.admin', 'Org8MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org8MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org8MSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.org8.amazonbiobank.mooo.com
+              Port: 7051
+
+    - &Org9
+        Name: Org9MSP
+
+        ID: Org9MSP
+
+        MSPDir: ../../machines/vm9/crypto-config/peerOrganizations/org9.amazonbiobank.mooo.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('Org9MSP.admin', 'Org9MSP.peer', 'Org9MSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org9MSP.admin', 'Org9MSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org9MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org9MSP.peer')"
+
+        AnchorPeers:
+            - Host: peer0.org9.amazonbiobank.mooo.com
+              Port: 7051
+
 
 Capabilities:
     Channel: &ChannelCapabilities
@@ -184,6 +335,12 @@ Profiles:
                 - *Org1
                 - *Org2
                 - *Org3
+                - *Org4
+                - *Org5
+                - *Org6
+                - *Org7
+                - *Org8
+                - *Org9
             Capabilities:
                 <<: *ApplicationCapabilities
 
@@ -223,3 +380,9 @@ Profiles:
                 - *Org1
                 - *Org2
                 - *Org3
+                - *Org4
+                - *Org5
+                - *Org6
+                - *Org7
+                - *Org8
+                - *Org9
