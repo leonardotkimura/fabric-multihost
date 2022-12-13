@@ -1,0 +1,49 @@
+{
+    "name": "first-network-org${ORG}",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org${ORG}",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Org${ORG}": {
+            "mspid": "Org${ORG}MSP",
+            "peers": [
+                "peer0.org${ORG}.amazonbiobank.mooo.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org${ORG}.amazonbiobank.mooo.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.org${ORG}.amazonbiobank.mooo.com": {
+            "url": "grpcs://peer0.org${ORG}.amazonbiobank.mooo.com:${P0PORT}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org${ORG}.amazonbiobank.mooo.com",
+                "hostnameOverride": "peer0.org${ORG}.amazonbiobank.mooo.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org${ORG}.amazonbiobank.mooo.com": {
+            "url": "https://ca.org${ORG}.amazonbiobank.mooo.com:${CAPORT}",
+            "caName": "ca.org${ORG}.amazonbiobank.mooo.com",
+            "tlsCACerts": {
+                "pem": "${CAPEM}"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}
