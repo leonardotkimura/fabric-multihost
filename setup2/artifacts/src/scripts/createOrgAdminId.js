@@ -22,6 +22,6 @@ const id = {
 
 fs.writeFile("../wallet/admin.id", JSON.stringify(id), function (err) {
     if (err) return console.log(err);
-    console.log('admin id created with success');
+    console.log(`admin id ${org} created with success`);
   })
 
