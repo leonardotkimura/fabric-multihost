@@ -24,7 +24,7 @@ createChannel(){
     setGlobalsForPeer0Org1
     
     # Replace localhost with your orderer's vm IP address
-    peer channel create -o 10.4.0.168:10750 -c $CHANNEL_NAME \
+    peer channel create -o localhost:10750 -c $CHANNEL_NAME \
     --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com \
     -f ./../../artifacts/channel/${CHANNEL_NAME}.tx --outputBlock ./channel-artifacts/${CHANNEL_NAME}.block \
     --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
@@ -46,7 +46,7 @@ joinChannel(){
 updateAnchorPeers(){
     setGlobalsForPeer0Org1
     # Replace localhost with your orderer's vm IP address
-    peer channel update -o 10.4.0.168:10750 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
+    peer channel update -o localhost:10750 --ordererTLSHostnameOverride orderer.amazonbiobank.mooo.com -c $CHANNEL_NAME -f ./../../artifacts/channel/${CORE_PEER_LOCALMSPID}anchors.tx --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA
     
 }
 
