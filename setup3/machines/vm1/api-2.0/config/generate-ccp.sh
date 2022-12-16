@@ -31,7 +31,7 @@ function yaml_ccp {
 
 ORG=1
 P0PORT=11751
-CAPORT=11754
+CAPORT=7054
 P0PORT1=8051
 PEERPEM=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/tlscacerts/tls-localhost-7054-ca-org1-amazonbiobank-mooo-com.pem
 PEERPEM1=../../crypto-config/peerOrganizations/org1.amazonbiobank.mooo.com/peers/peer0.org1.amazonbiobank.mooo.com/tls/tlscacerts/tls-localhost-7054-ca-org1-amazonbiobank-mooo-com.pem
