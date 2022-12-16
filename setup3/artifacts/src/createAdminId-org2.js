@@ -2,11 +2,11 @@ const fs = require('fs')
 
 const sk_name = process.argv[2]
 
-const sk = fs.readFileSync("/home/ubuntu/fabric-multihost/setup1/machines/vm2/crypto-config/" + 
+const sk = fs.readFileSync("/home/ubuntu/fabric-multihost/setup3/machines/vm2/crypto-config/" + 
     "peerOrganizations/org2.amazonbiobank.mooo.com/users/User1@org2.amazonbiobank.mooo.com/msp/keystore/" +
     sk_name)
 
-const cert = fs.readFileSync("/home/ubuntu/fabric-multihost/setup1/machines/vm2/crypto-config/" + 
+const cert = fs.readFileSync("/home/ubuntu/fabric-multihost/setup3/machines/vm2/crypto-config/" + 
     "peerOrganizations/org2.amazonbiobank.mooo.com/users/User1@org2.amazonbiobank.mooo.com/msp/signcerts/cert.pem")
 
 const id = {
