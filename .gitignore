@@ -114,3 +114,7 @@ setup1/vm2/fabcar.tar.gz
 setup1/vm2/log.txt
 setup1/vm3/fabcar.tar.gz
 setup1/vm3/log.txt
+
+setup3/machines/vm1/couchdb/*
+setup3/machines/vm2/couchdb/*
+setup3/machines/vm3/couchdb/*

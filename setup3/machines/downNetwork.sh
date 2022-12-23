@@ -1,5 +1,3 @@
-FIRST_TIME=false
-
 
 cd vm0
 docker-compose down

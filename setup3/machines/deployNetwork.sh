@@ -66,3 +66,9 @@ docker exec -i cli bash < chaincode-commit.sh
 cd vm1/api-2.0/config
 ./generate-ccp.sh
 cd -
+
+
+# create account
+cd ~/biobank/blockchain/test-network/
+./createUserAccount.sh
+cd -

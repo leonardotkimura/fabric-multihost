@@ -35,6 +35,8 @@ services:
       - 9984:5984
     networks:
       - test
+    volumes:
+      - ./couchdb:/opt/couchdb/data
 
   # couchdb5:
   #   container_name: couchdb5
@@ -96,7 +98,9 @@ services:
       - ./:/etc/hyperledger/channel/
     networks:
       - test
-
+    logging:
+      options:
+        max-size: 500m
   # peer1.org3.amazonbiobank.mooo.com:
   #   container_name: peer1.org3.amazonbiobank.mooo.com
   #   extends:
